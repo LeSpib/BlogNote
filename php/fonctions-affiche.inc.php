@@ -1,47 +1,11 @@
-﻿<?php  // Fonctions utilisées pour gérer des affichages. 
+﻿<?php  
+/**
+ * Fichier crée le 03/01/2016 par YT
+ * Codage : UTF8
+ * Fonctions gérant des affichages
+ **/
 
 // Gestion de correction d'affichage de valeurs des bases
-
-function DateFr2($date)
-  { // Conversion date SQL longue en date française courte
-  list($annee, $mois, $temp) = explode("-", $date);
-  list($jour, $temp2) = explode(" ", $temp);
-  if (($annee==1904) || ($annee==''))
-    return '';
-  else
-    return $jour . '-' . $mois . '-' . $annee ;
-  }
-
-function DateFr3($date)
-  { // Conversion date SQL longue en date française longue YT: Intérêt à vérifier...
-  list($annee, $mois, $temp) = explode("-", $date);
-  list($jour, $temp2) = explode(" ", $temp);
-  if (($annee==1904) || ($annee==''))
-    return '';
-  else
-    return $jour . '-' . $mois . '-' . $annee .' '.$temp2;
-  }
-
-function DateTexteFr($date)
-  { // Conversion date SQL longue en date française texte
-  global $mois_liste;
-  list($annee, $mois, $temp) = explode("-", $date);
-  list($jour, $temp2) = explode(" ", $temp);
-  if (($annee==1904) || ($annee==''))
-    return '';
-  else
-    return $jour . ' ' . $mois_liste[$mois-1] . ' ' . $annee ;
-  }
-
-function DateNonSQL($date)
-  {
-  list($avant, $date, $apres) = explode("'", $date);
-  if (strlen($avant)<=1)
-    return $date;
-  else
-    return $avant; // En l'absence de '', la date est dans la première chaine.
-  }
-
 function Pourcentage($valeur)
   {
   if ($valeur)
@@ -64,17 +28,6 @@ function TraduitOuiNon($valeur)
     return 'Non';
   elseif ($valeur=="1")   
     return 'Oui';
-  }
-
-function FORMexcel($texte0,$texte1,$minimal)
-  { // Bouton d'export Excel
-  html('<form method="post" action="bordereau.php">');
-  $vide='';
-  $dec = FormCache('texte0',$texte0,$vide,$vide);
-  $dec = FormCache('texte1',$texte1,$vide,$vide);
-  $dec = FormCache('minimal',$minimal,$vide,$vide);
-  html('<center><input type="submit" value="Export Excel" class="boutonlarge"></center>');
-  html('</form>');
   }
 
 function InfoCompteur($compteur, $aucun, $un, $pluriel)
@@ -192,5 +145,4 @@ function afficheActions ($texterequete,$titre,$saisie,$nbtotal,$connexion)
     TableFin(1,0);
     }
 }
-  
 ?>

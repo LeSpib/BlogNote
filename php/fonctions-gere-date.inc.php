@@ -1,12 +1,12 @@
 <?php
 /**
- * Fichier crÈe le 30/05/2013 par YT
- * Codage : Latin1
- * Fonctions gÈrant des dates et temps
+ * Fichier cr√©e le 03/01/2016 par YT
+ * Codage : UTF8
+ * Fonctions g√©rant des dates et temps
  **/
 
 function tempsFr($date)
-{   // Format de date franÁais (avec horaire)
+{   // Format de date fran√ßais (avec horaire)
     list($annee, $mois, $temp) = explode("-", $date);
     list($jour, $temp2) = explode(" ", $temp);
     list($heure, $minute, $seconde) = explode(":", $temp2);
@@ -30,17 +30,17 @@ function supprimeHeure($temps)
 }
 
 function annee($date)
-{   // Restitution de l'annÈe
+{   // Restitution de l'ann√©e
     if ((empty($date)) or ($date=="NULL"))
     {   // la date est vide
         $annee = '';
     }
     elseif (strpos($date,'-')===false) 
-    {   // la date proposÈe n'a pas de format classique
+    {   // la date propos√©e n'a pas de format classique
         $annee = $date;
     }
     else
-    {   // extraction de l'annÈe
+    {   // extraction de l'ann√©e
         $date = supprimeHeure($date);
         list($annee, $mois, $jour) = explode("-", $date);
     }
@@ -54,7 +54,7 @@ function mois($date)
         $mois = '';
     }
     elseif (strpos($date,'-')===false) 
-    {   // la date proposÈe n'a pas de format classique
+    {   // la date propos√©e n'a pas de format classique
         $mois = $date;
     }
     else
@@ -72,7 +72,7 @@ function jour($date)
         $jour = '';
     }
     elseif (strpos($date,'-')===false) 
-    {   // la date proposÈe n'a pas de format classique
+    {   // la date propos√©e n'a pas de format classique
         $jour = $date;
     }
     else
@@ -84,13 +84,13 @@ function jour($date)
 }
 
 function dateFr($date)
-{ // Format de date franÁais [jj-mm-aaaa]
+{ // Format de date fran√ßais [jj-mm-aaaa]
     if ((empty($date)) or ($date=="NULL"))
     {   // la date est vide
         $resultat = '';
     }
     elseif (strpos($date,'-')===false) 
-    {   // la date proposÈe n'a pas de format classique
+    {   // la date propos√©e n'a pas de format classique
         $resultat = $date;
     }
     else
@@ -103,7 +103,7 @@ function dateFr($date)
 }
 
 function dateComplete($date)
-{ // Format de date franÁais [jour jj mois aaaa]
+{ // Format de date fran√ßais [jour jj mois aaaa]
     global $jours_liste;
     global $mois_liste;
     if ((empty($date)) or ($date=="NULL"))
@@ -111,7 +111,7 @@ function dateComplete($date)
         $resultat = '';
     }
     elseif (strpos($date,'-')===false) 
-    {   // la date proposÈe n'a pas de format classique
+    {   // la date propos√©e n'a pas de format classique
         $resultat = $date;
     }
     else
@@ -126,14 +126,14 @@ function dateComplete($date)
 }
   
 function dateTexteCoursFr($date)
-{   // Conversion date SQL longue en date franÁaise texte
+{   // Conversion date SQL longue en date fran√ßaise texte
     global $moiscourts_liste;
     if ((empty($date)) or ($date=="NULL"))
     {   // la date est vide
         $resultat = '';
     }
     elseif (strpos($date,'-')===false) 
-    {   // la date proposÈe n'a pas de format classique
+    {   // la date propos√©e n'a pas de format classique
         $resultat = '';
     }
     else
@@ -148,7 +148,7 @@ function dateTexteCoursFr($date)
 }
 
 function horaireSeul($date)
-{   // RÈcupÈration d'un horaire sans les secondes
+{   // R√©cup√©ration d'un horaire sans les secondes
     if ($date=='')
     {
         return '-';
@@ -169,7 +169,7 @@ function horaireSeul($date)
 }
 
 function horaire($horaire)
-{   // RÈcupÈration d'un horaire sans les secondes
+{   // R√©cup√©ration d'un horaire sans les secondes
     if ($horaire=='')
     {
         return '-';
@@ -196,7 +196,7 @@ function dateJourSemaine($date)
         $resultat = '';
     }
     elseif (strpos($date,'-')===false) 
-    {   // la date proposÈe n'a pas de format classique
+    {   // la date propos√©e n'a pas de format classique
         $resultat = '';
     }
     else
@@ -210,7 +210,7 @@ function dateJourSemaine($date)
 }
 
 function heure($horaire)
-{ // RÈcupÈration de l'heure d'un horaire
+{ // R√©cup√©ration de l'heure d'un horaire
     if ((empty($horaire)) or ($horaire=="NULL"))
         $heure='';
     else
@@ -219,7 +219,7 @@ function heure($horaire)
 }
 
 function minute($horaire)
-{ // RÈcupÈration des minutes d'un horaire
+{ // R√©cup√©ration des minutes d'un horaire
     if ((empty($horaire)) or ($horaire=="NULL"))
         $minute='';
     else
@@ -228,7 +228,7 @@ function minute($horaire)
 }
 
 function dateSQL($jour,$mois,$annee)
-{   // ConcatÈnation de jj, mm, aaaa en ['aaaa-mm-jj'] (SQL)
+{   // Concat√©nation de jj, mm, aaaa en ['aaaa-mm-jj'] (SQL)
     if ((($jour==0) or ($mois==0)) or ($annee==0))
         return "NULL";
     else 
@@ -236,7 +236,7 @@ function dateSQL($jour,$mois,$annee)
 }
 
 function dateFrSQL($date)
-{ // Conversion de l'annÈe [jj/mm/aaaa] en [aaaa-mm-jj] (SQL)
+{ // Conversion de l'ann√©e [jj/mm/aaaa] en [aaaa-mm-jj] (SQL)
     if ((empty($date)) or ($date=="NULL"))
         return "NULL";
     else
@@ -247,7 +247,7 @@ function dateFrSQL($date)
 }
 
 function dateSQLFr($date)
-{ // RÈcupÈration de l'annÈe
+{ // R√©cup√©ration de l'ann√©e
     if ((empty($date)) or ($date=="NULL"))
         return "";
     else
@@ -261,7 +261,7 @@ function dateSQLFr($date)
 }
 
 function dureeMinute($heuredebut, $heurefin)
-{ // Calcule la durÈe en minute
+{ // Calcule la dur√©e en minute
     $duree = mktime(heure($heurefin), minute($heurefin), 0, 0, 0, 1)
              - mktime(heure($heuredebut), minute($heuredebut), 0, 0, 0, 1);
     $duree = round($duree/60);
@@ -269,17 +269,17 @@ function dureeMinute($heuredebut, $heurefin)
 }
 
 function ageActuel($date1,$date2)
-{ // Calcul d'‚ge
+{ // Calcul d'√¢ge
     if (((mois($date1)==mois($date2)) and (jour($date2)<jour($date1))) or (mois($date2)<mois($date1)))
         $age = annee($date2) - annee($date1) - 1;
     else
         $age = annee($date2) - annee($date1);   
-    if ($age>100) $age=''; // Pour Èviter les dates fausses.
+    if ($age>100) $age=''; // Pour √©viter les dates fausses.
     return $age;
 }
 
 function traduitJour($valeur)
-{ // Conversion d'un numÈro d'ordre en jour.
+{ // Conversion d'un num√©ro d'ordre en jour.
     global $jours_liste;
     if ($valeur=='')
         return '';
@@ -294,10 +294,10 @@ function dateLisible($date)
     else 
     {
         global $cejour;
-        list($annee, $mois, $jour) = explode("-", $date);  // Attention, ne gËre pas la prÈsence d'une heure.
+        list($annee, $mois, $jour) = explode("-", $date);  // Attention, ne g√®re pas la pr√©sence d'une heure.
         $timestamp1 = mktime (0, 0, 0, $mois, $jour, $annee);
 
-        list($annee, $mois, $jour) = explode("-", $cejour);  // Attention, ne gËre pas la prÈsence d'une heure.
+        list($annee, $mois, $jour) = explode("-", $cejour);  // Attention, ne g√®re pas la pr√©sence d'une heure.
         $timestamp2 = mktime (0, 0, 0, $mois, $jour, $annee);
 
         if ($timestamp1==$timestamp2)
@@ -329,4 +329,44 @@ function minutesLisible($minutes)
             return $heures . "h" . $minutes ;
     }
 }
+
+function DateFr2($date)
+  { // Conversion date SQL longue en date fran√ßaise courte
+  list($annee, $mois, $temp) = explode("-", $date);
+  list($jour, $temp2) = explode(" ", $temp);
+  if (($annee==1904) || ($annee==''))
+    return '';
+  else
+    return $jour . '-' . $mois . '-' . $annee ;
+  }
+
+function DateFr3($date)
+  { // Conversion date SQL longue en date fran√ßaise longue YT: Int√©r√™t √† v√©rifier...
+  list($annee, $mois, $temp) = explode("-", $date);
+  list($jour, $temp2) = explode(" ", $temp);
+  if (($annee==1904) || ($annee==''))
+    return '';
+  else
+    return $jour . '-' . $mois . '-' . $annee .' '.$temp2;
+  }
+
+function DateTexteFr($date)
+  { // Conversion date SQL longue en date fran√ßaise texte
+  global $mois_liste;
+  list($annee, $mois, $temp) = explode("-", $date);
+  list($jour, $temp2) = explode(" ", $temp);
+  if (($annee==1904) || ($annee==''))
+    return '';
+  else
+    return $jour . ' ' . $mois_liste[$mois-1] . ' ' . $annee ;
+  }
+
+function DateNonSQL($date)
+  {
+  list($avant, $date, $apres) = explode("'", $date);
+  if (strlen($avant)<=1)
+    return $date;
+  else
+    return $avant; // En l'absence de '', la date est dans la premi√®re chaine.
+  }
 ?>

@@ -1,4 +1,9 @@
 ﻿<?php
+/**
+ * Fichier crée le 03/01/2016 par YT
+ * Codage : UTF8
+ * Fonctions insérant des scripts dans les pages
+ **/
 
 function script_valide_mail($espace) 
   { // Script pour validation des courriels (composite de plusieurs éléments vus sur le web)
@@ -80,83 +85,6 @@ function script_icone_multiple_bis()
   html('</script>');
   }
 
-  
-// requetes-pour-script.php?id=4&traite=icone
-
-function script_liste_adherents($champs1,$champs2,$macro,$annee,$espace)
-  { // Script pour afficher une liste d\'identifiants sur la base de début de noms
-  $pagerequete = 'requetes-pour-script.php';
-  html($espace.'<script> <!-- Script pour afficher une liste d\'identifiants sur la base de début de noms-->');  
-  html($espace.'function '.$macro);
-  html($espace.'  {');
-  html($espace.'  var l1 = document.principal.'.$champs2.'.value;');
-  html($espace.'  var l2 = document.principal.'.$champs1);
-  html($espace.'  if(l1.length<2)');
-  html($espace.'    {');
-  html($espace.'    l2.options.length = 0;');
-  html($espace.'    l2.options[l2.options.length] = new Option(" ","0")');
-  html($espace.'    }');
-  html($espace.'  else');
-  html($espace.'    {');
-  html($espace.'    var xhr_object = null;');
-  html($espace.'    if(window.XMLHttpRequest) // Firefox');
-  html($espace.'      xhr_object = new XMLHttpRequest();');
-  html($espace.'    else if(window.ActiveXObject) // Internet Explorer');
-  html($espace.'      xhr_object = new ActiveXObject("Microsoft.XMLHTTP");');
-  html($espace.'    else');
-  html($espace.'      {');
-  html($espace.'      alert("Votre navigateur ne supporte pas les objets XMLHTTPRequest...");');
-  html($espace.'      return;');
-  html($espace.'      }');
-  html($espace.'    xhr_object.open("POST", "'.$pagerequete.'", true);');
-  html($espace.'    xhr_object.onreadystatechange = function()');
-  html($espace.'      {');
-  html($espace.'      if(xhr_object.readyState == 4) eval(xhr_object.responseText);');
-  html($espace.'      }');
-  html($espace.'    xhr_object.setRequestHeader("Content-type", "application/x-www-form-urlencoded");');
-  html($espace.'    var data = "nom="+escape(l1)+"&traite=adhe&annee='.$annee.'&adresse=document.principal.'.$champs1.'";');
-  html($espace.'    xhr_object.send(data);');
-  html($espace.'  } }');
-  html($espace.'</script>');
-  }
-
-function script_liste_profes($champs1,$champs2,$macro,$espace)
-  { // Script pour afficher une liste de professions sur la base d\'un début de frappe
-  $pagerequete = 'requetes-pour-script.php';
-  html($espace.'<script> <!-- Script pour afficher une liste de professions sur la base d\'un début de frappe-->');
-  html($espace.'function '.$macro);
-  html($espace.'  {');
-  html($espace.'  var l1 = document.principal.'.$champs2.'.value;');
-  html($espace.'  var l2 = document.principal.'.$champs1);
-  html($espace.'  if(l1.length<2)');
-  html($espace.'    {');
-  html($espace.'    l2.options.length = 0;');
-  html($espace.'    l2.options[l2.options.length] = new Option(" ","0")');
-  html($espace.'    }');
-  html($espace.'  else');
-  html($espace.'    {');
-  html($espace.'    var xhr_object = null;');
-  html($espace.'    if(window.XMLHttpRequest) // Firefox');
-  html($espace.'      xhr_object = new XMLHttpRequest();');
-  html($espace.'    else if(window.ActiveXObject) // Internet Explorer');
-  html($espace.'      xhr_object = new ActiveXObject("Microsoft.XMLHTTP");');
-  html($espace.'    else');
-  html($espace.'      {'); 
-  html($espace.'      alert("Votre navigateur ne supporte pas les objets XMLHTTPRequest...");');
-  html($espace.'      return;');
-  html($espace.'      }');
-  html($espace.'    xhr_object.open("POST", "'.$pagerequete.'", true);');
-  html($espace.'    xhr_object.onreadystatechange = function()');
-  html($espace.'      {');
-  html($espace.'      if(xhr_object.readyState == 4) eval(xhr_object.responseText);');
-  html($espace.'      }');
-  html($espace.'    xhr_object.setRequestHeader("Content-type", "application/x-www-form-urlencoded");');
-  html($espace.'    var data = "nom="+escape(l1)+"&traite=prof&adresse=document.principal.'.$champs1.'";');
-  html($espace.'    xhr_object.send(data);');
-  html($espace.'  } }');
-  html($espace.'</script>');
-  }
-
 function script_aidevisuelle($espace)
   {   
   html($espace.'<script> <!-- Script pour gérer les aides visuelles -->');
@@ -196,15 +124,4 @@ function script_aidevisuelle($espace)
   html($espace.'addLoadEvent(prepareInputsForHints);');
   html($espace.'</script>');
   }
-
-function script_test($espace)
-  { // Script pour la gestion des niveaux scolaires
-  html($espace.'<script> <!-- Script pour la gestion du lien salle/info salle-->');
-  html($espace.'  var s = document.principal.infopiece;');
-  html($espace.'  for (var prop in s)');
-  html($espace.'  {document.write("", prop, " = ","", s[prop],"",", ");}');
-  html($espace.'</script>');
-  }  
-
-  
 ?>
