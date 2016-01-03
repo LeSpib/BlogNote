@@ -1,0 +1,103 @@
+/* Général */
+html {
+    /*height: 97%;*/
+	}
+body {
+	font: normal 10pt arial;
+	height: 100%;
+	background-color:#DDD;
+    /*background-attachment:fixed;	
+	background: #fff url(../img/mb-clock2.jpg) left center;*/
+	text-align:justify;
+    width:99%;
+	margin:0px;
+	padding:0px;
+	}
+#page {
+    /*background-attachment:fixed;*/	
+	background-image: url(../img/fond1.gif);
+    background-repeat: repeat-y;
+    background-attachment: scroll;
+    background-position: 0% 0%;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-size: auto auto;
+	font: normal 10pt arial; 
+    color:	#00000; 
+	/*min-height: 100%;*/
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px; 
+	padding: 10px 0px 10px 0px;
+ 	/*top:0px;
+	bottom:0px;*/
+	float: center;
+	}
+/* Texte */
+a:link {
+    color: #69C;
+}
+a:visited {color:#985B24}
+a:active {color:#985B24}
+a:visited.sombre{color:#6486ca}
+
+#textepage{
+	float:left;
+	/*display:inline-block;*/
+	width:510px;
+	padding:0 20px 0 20px;
+	background-color: #FFF;
+	}
+
+#margepage{
+	display:inline-block;
+	/*float:right;*/
+	width:230px;
+	background-color:#CCCCFF;
+    padding: 0 10px 0 10px;
+	background-clip: border-box;
+	background-origin: padding-box;
+	background-size: auto auto;
+}
+#vide{
+	clear:both;
+}
+
+.message {
+    margin: 0px 0px 1.5em;
+    padding: 0px 0px 1.5em;
+    border-bottom: 1px solid #DDD;
+}
+.message .entete {
+	font: normal 8pt arial; 
+	color: #999;
+	padding-bottom:10px;
+}
+.message .titre {
+	font: bold 14pt arial; 
+	color: #E1771E;
+	padding-bottom:10px;
+}
+.message .texte{
+    padding: 0 0 10px 0;
+}
+.message .texte p{
+    padding: 0px 0px 1.25em;
+	margin:0 0 0 0;
+}
+.message .texte img {
+    padding: 6px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #DDD #C0C0C0 #C0C0C0 #DDD;
+}
+.message .texte .legende{
+	font: normal 8pt arial; 
+	color: #000000;
+	padding: 0 0 10px 0;
+	text-align:center;
+}
+.message .signature{
+    font-size: 8pt;
+    color: #999;
+}
