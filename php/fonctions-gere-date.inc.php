@@ -157,7 +157,7 @@ function horaireSeul($date)
     {
         list($date, $horaire) = explode(" ", $date);
 		list($heure, $minute, $seconde) = explode(":", $horaire);
-        if ($heure==0)
+        if (empty($heure))
         {
             return "-";
         }
