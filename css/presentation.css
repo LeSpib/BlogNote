@@ -7,7 +7,7 @@ body {
 	height: 100%;
 	background-color:#DDD;
     /*background-attachment:fixed;	
-	background: #fff url(../img/mb-clock2.jpg) left center;*/
+	background: #fff url(../img/Nornes.jpg) left center;*/
 	text-align:justify;
     width:99%;
 	margin:0px;
@@ -28,7 +28,7 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	width: 800px; 
-	padding: 10px 0px 10px 0px;
+	padding: 0px 0px 10px 0px;
  	/*top:0px;
 	bottom:0px;*/
 	float: center;
@@ -41,6 +41,30 @@ a:visited {color:#985B24}
 a:active {color:#985B24}
 a:visited.sombre{color:#6486ca}
 
+#titrepage{
+	background: #e0e0e0 url(http://www.lespib.infini.fr/blog/TitreBleu3.gif) no-repeat 0px 0px;
+	height:92px;
+	padding: 52px 0 0 80px;
+	margin: 0 0 1px 0;
+	font: bold 18pt arial; 
+	color: #FFFFFF;
+	text-shadow: #4F73B6 2px 2px 2px;
+	}
+	
+#filetpage{
+/*	background: #e0e0e0 url(http://www.lespib.infini.fr/blog/TitreBleu1.gif) no-repeat 0px 0px;*/
+	height:2px;
+	padding: 0;
+	margin: 0 0 1px 0;
+	}
+	
+#filetpage2{
+/*	background: #e0e0e0 url(http://www.lespib.infini.fr/blog/TitreBleu1.gif) no-repeat 0px 0px;*/
+	height:1px;
+	padding: 0;
+	margin: 0 0 10px 0;
+	}
+	
 #textepage{
 	float:left;
 	/*display:inline-block;*/
@@ -53,11 +77,15 @@ a:visited.sombre{color:#6486ca}
 	display:inline-block;
 	/*float:right;*/
 	width:230px;
-	background-color:#CCCCFF;
+	background-color:#EEEEEE;
     padding: 0 10px 0 10px;
 	background-clip: border-box;
 	background-origin: padding-box;
 	background-size: auto auto;
+	font-size: 85%;
+    line-height: 1.4em;
+    color: #999;
+    word-wrap: break-word;
 }
 #vide{
 	clear:both;
@@ -100,4 +128,45 @@ a:visited.sombre{color:#6486ca}
 .message .signature{
     font-size: 8pt;
     color: #999;
+}
+
+#margepage h1{
+	font: bold 10pt arial;
+    line-height: 1.4em;
+    color: #333;
+    word-wrap: break-word;
+	margin: 0 0 10px 0;
+}
+
+#margepage ul{
+	padding: 0 0 0 10px;
+	margin: 0 0 0 0;
+	list-style-type: none;
+}
+
+.rubrique{
+	padding: 0 0 10px 0;
+	margin: 0 0 10px 0;
+    border-bottom: 1px solid #DDD;
+}
+
+#profil img{
+    float: left;
+    margin: 0px 5px 5px 0px;
+    border: 1px solid #DDD;
+    padding: 4px;
+	background-color:#FFFFFF;
+}
+
+#citations .texte{
+    margin: 0 0 10px 0;
+}
+
+#citations .auteur{
+	text-align: right;
+}
+
+#citations .source{
+	text-align: right;
+	font-style: italic; 
 }

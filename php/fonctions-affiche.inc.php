@@ -111,6 +111,8 @@ function TitreAction($titre,$note)
     return '<b>'.$titre.'</b> - '.TronqueChaine($note,60);
   }
 
+
+// Fonctions d'affichage locales
 function afficheActions ($texterequete,$titre,$saisie,$nbtotal,$connexion)
 {
     $resultat = ExecRequete("SELECT ".$texterequete,$connexion);
@@ -144,5 +146,90 @@ function afficheActions ($texterequete,$titre,$saisie,$nbtotal,$connexion)
     while ($objet=ObjetSuivant($resultat));
     TableFin(1,0);
     }
+}
+
+function afficheLiens()
+{
+	global $connexion;
+	html('<div id="liens" class="rubrique">');
+	html('<h1>P\'tits liens</h1>');
+	html('<ul>');
+
+	$requete = "SELECT * FROM liens ORDER BY li_titre";
+	$resultat = ExecRequete($requete,$connexion);
+	$objet = ObjetSuivant($resultat);   
+	do
+    {
+		html('<li><a href="'. $objet->li_adresse.'">'. $objet->li_titre .'</a></li>');
+    }
+	while ($objet=ObjetSuivant($resultat));
+	html('</ul>');
+	html('</div>');
+}
+
+function afficheCitations()
+{
+	global $connexion;
+	html('<div id="citations" class="rubrique">');
+	html('<h1>P\'tite citation</h1>');
+	$requete = "SELECT ci_texte, ci_auteur, ci_lienauteur, ci_source, ci_liensource from citations ORDER BY rand() LIMIT 0,1";
+	$resultat = ExecRequete($requete,$connexion);
+	$objet = ObjetSuivant($resultat);   
+	html('<div class="texte">'. $objet->ci_texte .'</div>');
+	if (empty($objet->ci_lienauteur))
+	{
+		html('<div class="auteur">'. $objet->ci_auteur .'</div>');
+	}
+	else
+	{
+		html('<div class="auteur"><a href="'. $objet->ci_lienauteur .'">'. $objet->ci_auteur .'</a></div>');
+	}
+	if (!empty($objet->ci_source))
+	{
+		if (empty($objet->ci_liensource))
+		{
+			html('<div class="source">'. $objet->ci_source .'</div>');
+		}
+		else
+		{
+			html('<div class="source"><a href="'. $objet->ci_liensource .'">'. $objet->ci_source .'</a></div>');
+		}
+	}
+	html('</div>');
+}
+
+function afficheBlogNotes()
+{
+	global $connexion;
+	html('<div class="rubrique">');
+	html('<h1>P\'tits blog\'notes divins</h1>');
+	html('</div>');
+}
+
+function afficheArchives()
+{
+	global $connexion;
+	html('<div class="rubrique">');
+	html('<h1>P\'tites archives</h1>');
+	html('</div>');
+}
+
+function afficheStats()
+{
+	global $connexion;
+	html('<div class="rubrique">');
+	html('<h1>P\'tites statistiques</h1>');
+	html('</div>');
+}
+
+function afficheProfil()
+{
+	global $connexion;
+	html('<div id="profil" class="rubrique">');
+	html('<h1>Le P\'tit Noteur</h1>');
+	html('<img alt="Le Spib" height="80" src="//www.lespib.infini.fr/blog/avatar2.gif" width="80"/>');
+	html('<b>Le Spib</b><br /> ');
+	html('Homo Sapiens (ça en jette tout de suite, le «sapiens»). Je dirai même Homo Sapiens Ptitbritannicum, économiquement mixte.');
+	html('</div>');
 }
 ?>
